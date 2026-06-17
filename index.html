@@ -28,7 +28,7 @@
     box-shadow:0 30px 80px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.02) inset;
   }
   .topband{height:3px;background:linear-gradient(90deg,transparent,var(--cyan),transparent);opacity:.7}
-  .inner{padding:36px 34px 30px}
+  .inner{padding:36px 34px 34px}
   .status{display:flex;align-items:center;gap:15px;margin-bottom:28px}
   .badge{
     width:50px;height:50px;flex:none;border-radius:14px;display:flex;align-items:center;justify-content:center;
@@ -67,7 +67,7 @@
    CONFIGURACAO - troque apenas a senha abaixo pela sua senha secreta.
    Use a MESMA senha aqui e no gerador. Nao compartilhe com ninguem.
    =================================================================== */
-const SENHA_SECRETA = "S3NH4S3CR3T4";
+const SENHA_SECRETA = "TROQUE-ESTA-SENHA-POR-UMA-SUA-123";
 
 const EMISSOR = { nome:"CG PLUS STUDIO", razao:"C G PLUS LTDA", cnpj:"40.462.893/0001-01" };
 /* --- daqui pra baixo nao precisa mexer --- */
@@ -94,7 +94,7 @@ async function render(){
 
   if(!nome && !id){
     c.innerHTML = '<div class="status"><div class="badge bad">'+xIcon()+'</div>'+
-      '<div><h1>Nenhum certificado</h1><p>Escaneie o QR code de um certificado para valida-lo.</p></div></div>';
+      '<div><h1>Nenhum certificado</h1><p>Escaneie o QR code de um certificado para validá-lo.</p></div></div>';
     return;
   }
   // o CPF COMPLETO entra no hash; na tela mostramos mascarado
@@ -104,15 +104,15 @@ async function render(){
   if(valido){
     c.innerHTML =
       '<div class="status"><div class="badge">'+checkIcon()+'</div>'+
-      '<div><h1>Certificado valido</h1><p>Autenticidade confirmada por assinatura digital.</p></div></div>'+
+      '<div><h1>Certificado válido</h1><p>Autenticidade confirmada por assinatura digital.</p></div></div>'+
       '<div class="rows">'+
         row('Aluno', nome, true)+
         row('CPF', mascararCPF(cpf))+
         row('Curso', curso)+
-        row('Carga horaria', carga)+
+        row('Carga horária', carga)+
         '<div class="grid2">'+
-          row('Inicio', ini)+
-          row('Conclusao', fim)+
+          row('Início', ini)+
+          row('Conclusão', fim)+
         '</div>'+
       '</div>'+
       '<div class="issuer"><div class="label">Emitido por</div>'+
@@ -122,8 +122,8 @@ async function render(){
   } else {
     c.innerHTML =
       '<div class="status"><div class="badge bad">'+xIcon()+'</div>'+
-      '<div><h1>Certificado invalido</h1><p>A assinatura nao confere. Este documento pode ter sido alterado.</p></div></div>'+
-      '<div class="footer">Se voce acredita que isto e um erro, entre em contato com a '+esc(EMISSOR.nome)+'.</div>';
+      '<div><h1>Certificado inválido</h1><p>A assinatura não confere. Este documento pode ter sido alterado.</p></div></div>'+
+      '<div class="footer">Se você acredita que isto é um erro, entre em contato com a '+esc(EMISSOR.nome)+'.</div>';
   }
 }
 function row(label,value,big){
