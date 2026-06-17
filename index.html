@@ -14,16 +14,15 @@
     --line:#222B40;--ok:#34D399;--bad:#F87171;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html,body{height:100%}
   body{
     font-family:'Poppins',system-ui,sans-serif;
     background:radial-gradient(1200px 600px at 50% -10%, rgba(34,211,238,.08), transparent 60%),var(--bg);
     color:var(--ink);min-height:100vh;display:flex;flex-direction:column;
-    align-items:center;justify-content:center;padding:32px 20px;line-height:1.55;-webkit-font-smoothing:antialiased;
+    align-items:center;justify-content:flex-start;padding:32px 20px;line-height:1.55;-webkit-font-smoothing:antialiased;
   }
-  .logo{width:120px;opacity:.92;margin-bottom:26px;filter:drop-shadow(0 0 14px rgba(34,211,238,.12))}
+  .logo{width:120px;opacity:.92;margin:auto auto 26px;filter:drop-shadow(0 0 14px rgba(34,211,238,.12))}
   .card{
-    width:100%;max-width:500px;background:linear-gradient(180deg,var(--surface-2),var(--surface));
+    width:100%;max-width:500px;margin:0 auto auto;background:linear-gradient(180deg,var(--surface-2),var(--surface));
     border:1px solid var(--line);border-radius:18px;overflow:hidden;
     box-shadow:0 30px 80px -40px rgba(0,0,0,.9), 0 0 0 1px rgba(255,255,255,.02) inset;
   }
@@ -118,7 +117,7 @@ async function render(){
       '<div class="issuer"><div class="label">Emitido por</div>'+
         '<div class="name">'+esc(EMISSOR.nome)+'</div>'+
         '<div class="meta">'+esc(EMISSOR.razao)+' &middot; CNPJ '+esc(EMISSOR.cnpj)+'</div></div>'+
-      '<div class="footer">Codigo de verificacao<br><code>'+esc(id)+'</code></div>';
+      '<div class="footer">Código de verificação<br><code>'+esc(id)+'</code></div>';
   } else {
     c.innerHTML =
       '<div class="status"><div class="badge bad">'+xIcon()+'</div>'+
